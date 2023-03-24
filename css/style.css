@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+header {
+  display: flex;
+  align-content: center;
+  background-color: black;
+  height: 600px;
+  width: 600px;
+}
