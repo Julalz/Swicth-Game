@@ -7,7 +7,6 @@
 }
 
 body {
-  background: rgb(29, 61, 253);
   background: radial-gradient(
     circle,
     rgba(29, 61, 253, 1) 50%,
@@ -17,7 +16,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: lightskyblue;
 }
 
 .header1 {
@@ -26,7 +24,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding-bottom: 1rem;
+  padding: 1rem;
 }
 
 h1 {
@@ -34,35 +32,71 @@ h1 {
   width: 100%;
   font-family: Phudu, Arial, Helvetica, sans-serif;
   text-align: center;
-  -webkit-text-stroke: 3px rgba(255, 59, 245, 0.477);
-  color: transparent;
-  text-shadow: #c706fc 0px 0px 15px;
   font-size: 500%;
+  color: transparent;
+  background: linear-gradient(
+    to left,
+    #1e5799,
+    #2ce0bf,
+    #76dd2c,
+    #dba62b,
+    #e02cbf,
+    #1e5799
+  );
+  background-size: 600px 200%;
+  animation: text 15s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@keyframes text {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 10000px;
+  }
 }
 
 .principal {
-  display: flex;
   padding: 2rem;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
   width: 900px;
   height: 600px;
   border-radius: 5%;
   font-size: 1.5em;
-  font-style: italic;
   box-shadow: 0px 0px 215px rgba(56, 4, 154, 5);
 }
+
 .cards {
-  width: 100%;
+  /* background-color: #c706fc; */
   height: 100%;
-}
-ul {
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+/*cartas*/
 li {
-  width: 50px;
-  height: 100px;
-  background-color: bisque;
+  border-radius: 10%;
+  box-shadow: 0px 0px 25px rgba(67, 1, 1, 50%);
+  list-style: none;
+  width: 200px;
+  height: 200px;
+}
+
+.colorfixed {
+  text-align: center;
+  -webkit-text-stroke: 0.5px rgba(136, 6, 69, 0.724);
+}
+
+footer {
+  background-color: #c706fc;
 }
