@@ -19,6 +19,7 @@ body {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,6 +78,9 @@ h1 {
     background-position-x: 10000px;
   }
 }
+h2 {
+  padding: 2rem;
+}
 .principal {
   padding: 2rem;
   width: 100vh;
@@ -119,12 +123,37 @@ li {
 
 footer {
   display: flex;
-  width: 100vh;
-  padding-top: 3rem;
-  gap: 2rem;
   justify-content: center;
+  align-items: center;
+  width: 100vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  gap: 2rem;
 }
 
+button {
+  background-color: transparent;
+  border-radius: 19px;
+  height: 50px;
+  width: 50px;
+  background-image: url("./icon/reiniciar.png");
+  background-size: 100%;
+  border: none;
+  box-shadow: 0px 0px 25px rgba(67, 1, 100%);
+}
+button:hover {
+  cursor: pointer;
+  color: #fff;
+  transition: background-image 0.2s ease-in-out;
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+div {
+  align-items: center;
+  justify-content: center;
+  background-color: #1e5799;
+}
 .especial:hover {
   cursor: pointer;
 

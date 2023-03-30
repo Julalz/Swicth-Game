@@ -38,7 +38,6 @@ function reiniciarJuego() {
   intentosRest = 3;
   crearLis();
 }
-let aciertoRest = 3;
 let intentosRest = 3;
 let loser = 0;
 let win = 0;
@@ -67,7 +66,6 @@ function crearLis() {
       console.log(a.style.background, colorParaAdivinar2);
       if (a.style.background === colorParaAdivinar2) {
         win++;
-        aciertoRest++;
         aciertos.textContent = `Aciertos ${win}`;
         if (win === 3) {
           secondHeader.textContent = ` Ganaste por ${win} aciertos`;
@@ -84,9 +82,6 @@ function crearLis() {
         secondHeader.textContent = `Fumado compra unas gafas y tienes otros ${intentosRest} intentos`;
         if (loser === 3) {
           secondHeader.textContent = ` Perdiste por ${loser} fallos`;
-          setTimeout(() => {
-            reiniciarJuego();
-          }, 5000);
         } else {
           crearLis();
         }
@@ -110,5 +105,11 @@ aciertos.textContent = "Aciertos: 0";
 aciertos.id = "aciertos";
 footer.appendChild(fallos);
 footer.appendChild(aciertos);
+const btn = document.createElement("button");
+footer.appendChild(btn);
+
+btn.addEventListener("click", () => {
+  reiniciarJuego();
+});
 
 document.body.appendChild(footer);
