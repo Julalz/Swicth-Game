@@ -39,10 +39,12 @@ body {
 
 .header1 {
   display: flex;
-  text-shadow: #ccc 1px 0 10px;
+  flex-direction: column;
+  text-shadow: #e3bcbc 1px 0 10px;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  gap: 2rem;
+  padding-bottom: 2rem;
 }
 
 h1 {
@@ -75,11 +77,11 @@ h1 {
     background-position-x: 10000px;
   }
 }
-
 .principal {
   padding: 2rem;
-  width: 900px;
-  height: 600px;
+  width: 100vh;
+  height: 100vh;
+  max-height: 1000px;
   border-radius: 5%;
   font-size: 1.5em;
   box-shadow: 0px 0px 215px rgba(56, 4, 154, 5);
@@ -166,4 +168,12 @@ footer {
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
   }
+}
+div {
+  font-size: larger;
+  padding-bottom: 2rem;
+}
+
+.winScreen {
+  background-color: #23d5ab;
 }
