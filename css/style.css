@@ -45,7 +45,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  padding-bottom: 2rem;
 }
 
 h1 {
@@ -55,6 +54,7 @@ h1 {
   text-align: center;
   font-size: 700%;
   color: transparent;
+  padding-top: 4rem;
   background: linear-gradient(
     to left,
     #1e5799,
@@ -126,6 +126,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100vh;
+  height: 100px;
   padding-top: 2rem;
   padding-bottom: 2rem;
   gap: 2rem;
@@ -143,23 +144,19 @@ button {
 }
 button:hover {
   cursor: pointer;
-  color: #fff;
   transition: background-image 0.2s ease-in-out;
   transform: scale(1.1);
   opacity: 0.7;
 }
 
-div {
+footer div {
+  font-size: larger;
   align-items: center;
-  justify-content: center;
-  background-color: #1e5799;
+  padding-bottom: 2rem;
 }
 .especial:hover {
   cursor: pointer;
-
-  /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;
-
   animation-iteration-count: infinite;
 }
 
@@ -199,10 +196,4 @@ div {
   }
 }
 div {
-  font-size: larger;
-  padding-bottom: 2rem;
-}
-
-.winScreen {
-  background-color: #23d5ab;
 }
