@@ -1,18 +1,25 @@
-function generarNumero(numero) {
-  return Math.floor(Math.random() * (numero + 1));
+function generarNumero(max, min = 0) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function colorRGB() {
-  let coolor =
-    "(" +
-    generarNumero(255) +
-    ", " +
-    generarNumero(255) +
-    ", " +
-    generarNumero(255) +
-    ")";
-  return "rgb" + coolor;
+  // let coolor =
+  //   "(" +
+  //   generarNumero(255) +
+  //   ", " +
+  //   generarNumero(255) +
+  //   ", " +
+  //   generarNumero(255) +
+  //   ")";
+  return [generarNumero(255), generarNumero(255), generarNumero(255)];
 }
+function arrayToRgbString(array) {
+  return "rgb(" + array[0] + ", " + array[1] + ", " + array[2] + ")";
+}
+const audiocardwrong = new Audio("javaScr/audios/wrong.mp3");
+const audioloser = new Audio("javaScr/audios/loser.mp3");
+const audiowin = new Audio("javaScr/audios/win.mp3");
+const audiocardcorrect = new Audio("javaScr/audios/pingcorrect.mp3");
 
 const secondHeader = document.createElement("header");
 const h2 = document.createElement("h2");
@@ -47,7 +54,7 @@ const ul = document.createElement("ul");
 
 function crearLis() {
   const colorParaAdivinar2 = colorRGB();
-  secondHeader.textContent = colorParaAdivinar2;
+  secondHeader.textContent = arrayToRgbString(colorParaAdivinar2);
   const posicionGanadora = generarNumero(5);
   ul.innerHTML = "";
   // console.log(posicionGanadora);
@@ -55,41 +62,41 @@ function crearLis() {
   for (let i = 0; i <= 5; i++) {
     const a = document.createElement("li");
     if (i === posicionGanadora) {
-      a.style.background = colorParaAdivinar2;
+      a.style.background = arrayToRgbString(colorParaAdivinar2);
+      const [r, g, b] = colorParaAdivinar2;
+      a.style.boxShadow = `0px 0px 25px rgba(${r}, ${g}, ${b}, 50%)`;
     } else {
-      const r = generarNumero(50) + 50;
-      const g = generarNumero(50) + 50;
-      const b = generarNumero(50) + 50;
+      const r = colorParaAdivinar2[0] + generarNumero(80, -80);
+      const g = colorParaAdivinar2[1] + generarNumero(80, -80);
+      const b = colorParaAdivinar2[2] + generarNumero(80, -80);
       const colorAleatorio = `rgb(${r}, ${g}, ${b})`;
       a.style.background = colorAleatorio;
+      a.style.boxShadow = `0px 0px 25px rgba(${r}, ${g}, ${b}, 50%)`;
       console.log(r, g, b);
     }
     a.classList.add("especial");
     a.addEventListener("click", () => {
-      // console.log(a.style.background, colorParaAdivinar2);
-      if (a.style.background === colorParaAdivinar2) {
-        const audiocardcorrect = new Audio("javaScr/audios/pingcorrect.mp3");
+      console.log(a.style.background, colorParaAdivinar2);
+      if (a.style.background === arrayToRgbString(colorParaAdivinar2)) {
         audiocardcorrect.play();
         win++;
         aciertos.textContent = `Aciertos ${win}`;
         if (win === 3) {
           secondHeader.textContent = ` Ganaste por ${win} aciertos`;
-          const audiowin = new Audio("javaScr/audios/win.mp3");
           audiowin.play();
+          ul.innerHTML = "";
         } else {
           crearLis();
         }
       } else {
-        const audiocardwrong = new Audio("javaScr/audios/wrong.mp3");
         audiocardwrong.play();
         loser++;
-        intentosRest--;
         fallos.textContent = `Fallos ${loser}`;
-        secondHeader.textContent = `Fumado compra unas gafas y tienes otros ${intentosRest} intentos`;
+
         if (loser === 3) {
-          const audioloser = new Audio("javaScr/audios/loser.mp3");
           audioloser.play();
           secondHeader.textContent = ` Perdiste por ${loser} fallos`;
+          ul.innerHTML = "";
         } else {
           crearLis();
         }

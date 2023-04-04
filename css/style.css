@@ -109,7 +109,7 @@ ul {
 }
 /*cartas*/
 li {
-  border-radius: 10%;
+  border-radius: 16%;
   box-shadow: 0px 0px 25px rgba(67, 1, 1, 50%);
   list-style: none;
   width: 200px;
@@ -126,7 +126,6 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100vh;
-  height: 100px;
   padding-top: 2rem;
   padding-bottom: 2rem;
   gap: 2rem;
@@ -152,7 +151,6 @@ button:hover {
 footer div {
   font-size: larger;
   align-items: center;
-  padding-bottom: 2rem;
 }
 .especial:hover {
   cursor: pointer;
@@ -194,6 +192,4 @@ footer div {
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
   }
-}
-div {
 }
